@@ -1,0 +1,354 @@
+db.majors.insertMany([
+  { "_id": 1, "major_name": "Программная инженерия" },
+  { "_id": 2, "major_name": "Механическая инженерия" },
+  { "_id": 3, "major_name": "Бизнес-администрирование" }
+]);
+db.groups.insertMany([
+  { "_id": 1, "group_number": "PE101", "major_id": 1 },
+  { "_id": 2, "group_number": "PE102", "major_id": 1 },
+  { "_id": 3, "group_number": "ME201", "major_id": 2 },
+  { "_id": 4, "group_number": "ME202", "major_id": 2 },
+  { "_id": 5, "group_number": "BA301", "major_id": 3 },
+  { "_id": 6, "group_number": "BA302", "major_id": 3 }
+]);
+db.students.insertMany([
+  { "_id": 1, "first_name": "Иван", "last_name": "Иванов", "middle_name": "Иванович", "birth_date": ISODate("2000-05-15"), "city": "Москва", "street": "Ленинградский проспект", "house_number": "10", "email": "ivan.ivanov@example.com", "group_id": 1, "scholarship": true },
+  { "_id": 2, "first_name": "Мария", "last_name": "Петрова", "middle_name": "Петровна", "birth_date": ISODate("1999-07-20"), "city": "Санкт-Петербург", "street": "Невский проспект", "house_number": "22", "email": "maria.petrova@example.com", "group_id": 1, "scholarship": false },
+  { "_id": 3, "first_name": "Алексей", "last_name": "Смирнов", "middle_name": "Алексеевич", "birth_date": ISODate("2001-02-10"), "city": "Новосибирск", "street": "Красный проспект", "house_number": "33", "email": "alexey.smirnov@example.com", "group_id": 1, "scholarship": true },
+  { "_id": 4, "first_name": "Анна", "last_name": "Кузнецова", "middle_name": "Андреевна", "birth_date": ISODate("2002-09-15"), "city": "Екатеринбург", "street": "Свердловская улица", "house_number": "44", "email": "anna.kuznetsova@example.com", "group_id": 2, "scholarship": false },
+  { "_id": 5, "first_name": "Дмитрий", "last_name": "Соколов", "middle_name": "Владимирович", "birth_date": ISODate("1998-12-25"), "city": "Казань", "street": "Пушкина улица", "house_number": "55", "email": "dmitry.sokolov@example.com", "group_id": 2, "scholarship": true },
+  { "_id": 6, "first_name": "Елена", "last_name": "Попова", "middle_name": "Сергеевна", "birth_date": ISODate("2000-03-05"), "city": "Челябинск", "street": "Ленина улица", "house_number": "66", "email": "elena.popova@example.com", "group_id": 3, "scholarship": false },
+  { "_id": 7, "first_name": "Сергей", "last_name": "Васильев", "middle_name": "Николаевич", "birth_date": ISODate("2001-08-12"), "city": "Самара", "street": "Московское шоссе", "house_number": "77", "email": "sergey.vasilev@example.com", "group_id": 3, "scholarship": true }
+]);
+db.phones.insertMany([
+  { "student_id": 1, "phone_number": "123-456-7890" },
+  { "student_id": 2, "phone_number": "234-567-8901" },
+  { "student_id": 3, "phone_number": "345-678-9012" },
+  { "student_id": 4, "phone_number": "456-789-0123" },
+  { "student_id": 5, "phone_number": "567-890-1234" },
+  { "student_id": 6, "phone_number": "678-901-2345" },
+  { "student_id": 7, "phone_number": "789-012-3456" }
+]);
+db.teachers.insertMany([
+  { "_id": 1, "first_name": "Александр", "last_name": "Федоров", "middle_name": "Николаевич" },
+  { "_id": 2, "first_name": "Борис", "last_name": "Иванов", "middle_name": "Сергеевич" },
+  { "_id": 3, "first_name": "Виктория", "last_name": "Петрова", "middle_name": "Александровна" },
+  { "_id": 4, "first_name": "Галина", "last_name": "Сидорова", "middle_name": "Владимировна" },
+  { "_id": 5, "first_name": "Дмитрий", "last_name": "Кузнецов", "middle_name": "Андреевич" }
+]);
+db.subjects.insertMany([
+  { "_id": 1, "subject_name": "Математика", "major_id": 1, "teacher_id": 1 },
+  { "_id": 2, "subject_name": "Физика", "major_id": 1, "teacher_id": 2 },
+  { "_id": 3, "subject_name": "Информатика", "major_id": 1, "teacher_id": 3 },
+  { "_id": 4, "subject_name": "Механика", "major_id": 2, "teacher_id": 2 },
+  { "_id": 5, "subject_name": "Термодинамика", "major_id": 2, "teacher_id": 4 },
+  { "_id": 6, "subject_name": "Менеджмент", "major_id": 3, "teacher_id": 5 },
+  { "_id": 7, "subject_name": "Бухгалтерский учет", "major_id": 3, "teacher_id": 5 }
+]);
+db.grades.insertMany([
+  { "student_id": 1, "subject_id": 1, "grade": 5 },
+  { "student_id": 1, "subject_id": 2, "grade": 4 },
+  { "student_id": 1, "subject_id": 3, "grade": 5 },
+  { "student_id": 2, "subject_id": 1, "grade": 3 },
+  { "student_id": 2, "subject_id": 2, "grade": 4 },
+  { "student_id": 2, "subject_id": 3, "grade": 5 },
+  { "student_id": 3, "subject_id": 1, "grade": 5 },
+  { "student_id": 3, "subject_id": 2, "grade": 3 },
+  { "student_id": 3, "subject_id": 3, "grade": 5 },
+  { "student_id": 4, "subject_id": 4, "grade": 4 },
+  { "student_id": 4, "subject_id": 5, "grade": 5 },
+  { "student_id": 5, "subject_id": 4, "grade": 5 },
+  { "student_id": 5, "subject_id": 5, "grade": 4 },
+  { "student_id": 6, "subject_id": 6, "grade": 5 },
+  { "student_id": 6, "subject_id": 7, "grade": 3 },
+  { "student_id": 7, "subject_id": 6, "grade": 4 },
+  { "student_id": 7, "subject_id": 7, "grade": 5 }
+]);
+
+
+1. Списки групп по каждому предмету с указанием преподавателя
+db.subjects.aggregate([
+  {
+    $lookup: {
+      from: "teachers",
+      localField: "teacher_id",
+      foreignField: "_id",
+      as: "teacher_info"
+    }
+  },
+  { $unwind: "$teacher_info" },
+  {
+    $lookup: {
+      from: "grades",
+      localField: "_id",
+      foreignField: "subject_id",
+      as: "grades_info"
+    }
+  },
+  { $unwind: "$grades_info" },
+  {
+    $lookup: {
+      from: "students",
+      localField: "grades_info.student_id",
+      foreignField: "_id",
+      as: "student_info"
+    }
+  },
+  { $unwind: "$student_info" },
+  {
+    $lookup: {
+      from: "groups",
+      localField: "student_info.group_id",
+      foreignField: "_id",
+      as: "group_info"
+    }
+  },
+  { $unwind: "$group_info" },
+  {
+    $group: {
+      _id: "$_id",
+      subject_name: { $first: "$subject_name" },
+      teacher_name: { $first: { $concat: ["$teacher_info.last_name", " ", "$teacher_info.first_name", " ", "$teacher_info.middle_name"] } },
+      groups: { $addToSet: "$group_info.group_number" }
+    }
+  }
+]);
+
+
+2. Дисциплина, которую изучает максимальное количество студентов
+
+db.grades.aggregate([
+  {
+    $group: {
+      _id: "$subject_id",
+      student_count: { $sum: 1 }
+    }
+  },
+  {
+    $lookup: {
+      from: "subjects",
+      localField: "_id",
+      foreignField: "_id",
+      as: "subject_info"
+    }
+  },
+  { $unwind: "$subject_info" },
+  {
+    $sort: { student_count: -1 }
+  },
+  { $limit: 1 },
+  {
+    $project: {
+      _id: 0,
+      subject_name: "$subject_info.subject_name",
+      student_count: 1
+    }
+  }
+]);
+
+
+3. Количество студентов, обучающихся у каждого преподавателя
+
+db.teachers.aggregate([
+  {
+    $lookup: {
+      from: "subjects",
+      localField: "_id",
+      foreignField: "teacher_id",
+      as: "subjects_info"
+    }
+  },
+  { $unwind: "$subjects_info" },
+  {
+    $lookup: {
+      from: "grades",
+      localField: "subjects_info._id",
+      foreignField: "subject_id",
+      as: "grades_info"
+    }
+  },
+  { $unwind: "$grades_info" },
+  {
+    $group: {
+      _id: "$_id",
+      teacher_name: { $first: { $concat: ["$last_name", " ", "$first_name", " ", "$middle_name"] } },
+      student_count: { $addToSet: "$grades_info.student_id" }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      teacher_name: 1,
+      student_count: { $size: "$student_count" }
+    }
+  }
+]);
+
+4. Доля сдавших студентов по каждой дисциплине
+db.grades.aggregate([
+  {
+    $group: {
+      _id: "$subject_id",
+      passed: { $sum: { $cond: [{ $gt: ["$grade", 2] }, 1, 0] } },
+      total: { $sum: 1 }
+    }
+  },
+  {
+    $lookup: {
+      from: "subjects",
+      localField: "_id",
+      foreignField: "_id",
+      as: "subject_info"
+    }
+  },
+  { $unwind: "$subject_info" },
+  {
+    $project: {
+      _id: 0,
+      subject_name: "$subject_info.subject_name",
+      pass_rate: { $divide: ["$passed", "$total"] }
+    }
+  }
+]);
+
+5. Средняя оценка по предметам (для сдавших студентов)
+db.grades.aggregate([
+  {
+    $match: { grade: { $gt: 2 } }
+  },
+  {
+    $group: {
+      _id: "$subject_id",
+      avg_grade: { $avg: "$grade" }
+    }
+  },
+  {
+    $lookup: {
+      from: "subjects",
+      localField: "_id",
+      foreignField: "_id",
+      as: "subject_info"
+    }
+  },
+  { $unwind: "$subject_info" },
+  {
+    $project: {
+      _id: 0,
+      subject_name: "$subject_info.subject_name",
+      avg_grade: 1
+    }
+  }
+]);
+
+6. Группа с максимальной средней оценкой (включая не сдавших)
+db.grades.aggregate([
+  {
+    $lookup: {
+      from: "students",
+      localField: "student_id",
+      foreignField: "_id",
+      as: "student_info"
+    }
+  },
+  { $unwind: "$student_info" },
+  {
+    $group: {
+      _id: "$student_info.group_id",
+      avg_grade: { $avg: "$grade" }
+    }
+  },
+  {
+    $lookup: {
+      from: "groups",
+      localField: "_id",
+      foreignField: "_id",
+      as: "group_info"
+    }
+  },
+  { $unwind: "$group_info" },
+  {
+    $sort: { avg_grade: -1 }
+  },
+  { $limit: 1 },
+  {
+    $project: {
+      _id: 0,
+      group_number: "$group_info.group_number",
+      avg_grade: 1
+    }
+  }
+]);
+
+
+7. Студенты со всеми оценками отлично и не имеющих несданный экзамен
+shell
+
+db.students.aggregate([
+  {
+    $lookup: {
+      from: "grades",
+      localField: "_id",
+      foreignField: "student_id",
+      as: "grades_info"
+    }
+  },
+  {
+    $match: {
+      "grades_info.grade": { $gte: 4 }
+    }
+  },
+  {
+    $group: {
+      _id: "$_id",
+      full_name: { $first: { $concat: ["$last_name", " ", "$first_name", " ", "$middle_name"] } },
+      grades_count: { $sum: 1 }
+    }
+  },
+  {
+    $match: {
+      grades_count: { $eq: (db.subjects.countDocuments()) }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      full_name: 1
+    }
+  }
+]);
+
+
+8. Кандидаты на отчисление (не сдано не менее двух предметов)
+db.students.aggregate([
+  {
+    $lookup: {
+      from: "grades",
+      localField: "_id",
+      foreignField: "student_id",
+      as: "grades_info"
+    }
+  },
+  {
+    $match: {
+      "grades_info.grade": { $lt: 3 }
+    }
+  },
+  {
+    $group: {
+      _id: "$_id",
+      full_name: { $first: { $concat: ["$last_name", " ", "$first_name", " ", "$middle_name"] } },
+      failed_subjects: { $sum: 1 }
+    }
+  },
+  {
+    $match: {
+      failed_subjects: { $gte: 2 }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      full_name: 1
+    }
+  }
+]);
